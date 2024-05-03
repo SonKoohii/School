@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <title>Vietnam</title>
+
+    <style>
+      body {
+        background-color: rgb(229, 235, 235);
+      }
+      h1 {
+        margin-top: 2%;
+        font-size: xx-large;
+        text-align: center;
+        border: solid black;
+      }
+      #map-button {
+        border-radius: 1rem;
+        width: 18rem;
+        height: 2rem;
+        margin-left: 12%;
+        background-color: rgb(235, 108, 108);
+        color: white;
+        cursor: pointer;
+        transition: 0.7s;
+      }
+      #map-button:hover {
+        opacity: 0.7;
+      }
+      #map-button:active {
+        opacity: 0.3;
+      }
+      .h2-p1 {
+        margin-left: 3%;
+        margin-right: 60%;
+        z-index: 1;
+        position: absolute;
+      }
+      h2,
+      h3 {
+        margin-left: 3%;
+      }
+      .viet-food {
+        z-index: 1;
+        margin-left: 55%;
+        width: 40%;
+        height: 40%;
+      }
+      #map {
+        
+        width: 700px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Land of the Blue Dragon</h1>
+    <br />
+    <br />
+    <h2>Why i want to visit Vietnam.</h2>
+    <br />
+    <p class="h2-p1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quis
+      soluta aperiam voluptas, odio nisi eum quaerat dolorum hic dolores placeat
+      odit eveniet recusandae repellendus eaque fuga sed corrupti corporis?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae neque
+      ut itaque quidem quisquam pariatur, recusandae vitae laboriosam
+      cupiditate, voluptatem quos alias facilis eaque! Facere suscipit eius enim
+      ipsam! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
+      totam earum dolores, nulla excepturi asperiores, quos voluptatibus id
+      recusandae libero alias consequatur fugit dicta dolorum magnam saepe cum
+      rerum. Quas. Lorem ipsum dolor, sit amet consectetur adipisicing elit. In
+      accusamus officia magnam, dolorum ut voluptate corrupti exercitationem
+      sapiente alias repudiandae id. Placeat sequi necessitatibus explicabo
+      quibusdam provident nesciunt quis iure.
+    </p>
+    <img
+      class="viet-food"
+      src="https://www.easyridersvietnam.com/wp-content/uploads/2023/03/must-try-dishes-in-vietnam-pho1.jpg"
+    />
+    <br />
+    <br />
+
+    <h3>What are some worth while sightseeing places. Let's have a look!</h3>
+
+    <button id="map-button" onclick="()">Have a look!</button>
+    <br />
+    <br />
+    <br />
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+      let map = L.map("map").setView([16.463713, 107.590866], 6);
+
+      let places = [
+        { name: "Hạ Long Bay", coordinates: [20.9094, 107.1838] },
+        { name: "Huế Imperial City", coordinates: [16.4637, 107.5909] },
+        { name: "Hội An Ancient Town", coordinates: [15.8801, 108.338] },
+      ];
+
+      function showSightseeingPlaces() {
+        places.forEach(function(place) {
+          L.marker(place.coordinates).addTo(map).bindPopup(place.name);
+        });
+      }
+
+      document.getElementById("map-button").addEventListener("click", function() {
+       
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        showSightseeingPlaces();
+    });
+  </script>
+    </script>
+  </body>
+</html>

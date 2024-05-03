@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha512-xMQzHxGNBRzUfYtPln0qdBOjKbQpNm/ONaLFqPkyIxwIx1iPsMQECqDURUhC6oLWdT/UXywLJzTdPhqyxPhCxA=="
+      crossorigin=""
+    />
+    <title>Getting around</title>
+    <style>
+      body {
+        font-family: monospace;
+      }
+      li {
+        margin-left: 20px;
+      }
+      ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+        position: relative;
+        z-index: 1;
+        border: solid black;
+        padding: 1.42%;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .logo {
+        z-index: 1;
+        position: absolute;
+        height: 7%;
+        border: solid black;
+      }
+      .h1-pic {
+        width: 100%;
+        object-fit: cover;
+        height: 20rem;
+        z-index: 2;
+        position: absolute;
+        border: solid black;
+      }
+      .h1 {
+        z-index: 2;
+        position: relative;
+        left: 80%;
+        color: white;
+        font-size: xx-large;
+        top: 250px;
+      }
+
+      .cosmetic-line {
+        text-align: center;
+        background-color: black;
+        height: 1px;
+      }
+      .map {
+        padding: 5rem;
+        margin-left: 15%;
+        cursor: pointer;
+        transition: 1s;
+      }
+      .map:hover {
+        transition: 1s;
+        opacity: 0.5s;
+      }
+
+      .map:active {
+        opacity: 0.1s;
+      }
+      .map__jp {
+        background-image: url(https://www.planetware.com/photos-large/JPN/japan-attractions-imperial-palace.jpg);
+        background-size: cover;
+      }
+      .map__jp:hover {
+        background-image: url(https://cdn.kimkim.com/files/a/images/6c43404d47bfac43a77be62cd80a892f0311baab/original-abed4020a2e17d8f008c14ba12ef025f.jpg);
+        content: "Japan";
+      }
+      .map__viet {
+        background-image: url(https://img.traveltriangle.com/blog/wp-content/uploads/2016/07/Vietnam-cover_9th-Mar.jpg);
+        background-size: cover;
+      }
+      .map__viet:hover {
+        background-image: url(https://idsb.tmgrup.com.tr/ly/uploads/images/2021/05/26/117390.jpg);
+      }
+      .map__spain {
+        background-image: url(https://makespain.com/wp-content/uploads/2022/01/Segovia-castle-605x465.jpg);
+        background-size: cover;
+      }
+      .map__spain:hover {
+        background-image: url(https://i0.wp.com/angelatravels.com/wp-content/uploads/2011/04/5628650413_1ce22c5c56_z.jpg?fit=640%2C427&ssl=1);
+        background-size: cover;
+      }
+      h2 {
+        margin-left: 3%;
+        text-decoration: underline;
+      }
+      .first-p,
+      p,
+      h2,
+      h3 {
+        font-size: larger;
+        margin-left: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="logo"
+      src="https://pics.craiyon.com/2023-05-23/45d927d7109446778c3d897e3f2b84ff.webp"
+    />
+    <nav>
+      <ul>
+        <li id="Home">
+          <a href="./school-pro.html"><strong>HOME</strong></a>
+        </li>
+
+        <li id="About"><a href="./about.html">ABOUT</a></li>
+
+        <li id="Blog"><a href="./blog.html">BLOG</a></li>
+      </ul>
+    </nav>
+
+    <br />
+    <img
+      class="h1-pic"
+      src="https://www.exoticca.com/us/blog/wp-content/uploads/2021/08/Japan-sightseeing-BLOG-header.png"
+    />
+    <h1 class="h1"><strong>My Travel Blog</strong></h1>
+    <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+    <div class="cosmetic-line"><strong>My personal Travel goals!</strong></div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <button class="map map__jp" onclick="goToJapan()">Japan</button>
+
+    <button class="map map__viet" onclick="goToVietnam()">Vietnam</button>
+
+    <button class="map map__spain" onclick="goToSpain()">Spain</button>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <h2>Why i want to go to thoses places.</h2>
+    <br />
+    <p class="first-p">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, eaque
+      nostrum dolor repellat molestias, nihil eligendi ratione nobis magni
+      explicabo esse hic facilis aut pariatur. Omnis sint porro mollitia dolore?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam debitis
+      adipisci architecto, cum aliquid omnis ex officia eligendi ducimus itaque
+      modi, porro quaerat harum maxime quisquam consequuntur fugiat tempore
+      repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Repudiandae atque excepturi, iste accusantium harum amet. Blanditiis
+      tempore molestias, dolor nulla eum, adipisci fuga esse laborum iste
+      deserunt sequi quas officiis? Lorem ipsum, dolor sit amet consectetur
+      adipisicing elit. Porro natus totam deserunt voluptatibus maxime dicta
+      minima quaerat earum ratione necessitatibus, dolorem voluptate tenetur
+      sunt pariatur ex, sequi sit dolorum quasi?
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3>The reasons why i never made it there..</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci
+      blanditiis odit aut. Libero, ab ea aut, hic perferendis labore inventore
+      quidem quo porro totam provident doloremque dolores! Illum, temporibus
+      voluptas. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Placeat, at aliquid tempora repellendus suscipit velit temporibus
+      doloremque, dolorem sunt voluptate ea porro ipsa commodi veniam in
+      eveniet, adipisci aspernatur amet. Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. Quae architecto deleniti at reiciendis error recusandae
+      deserunt eum aut veniam, animi consectetur distinctio tempore repudiandae
+      blanditiis facere nulla provident alias sapiente. Lorem ipsum dolor sit
+      amet consectetur adipisicing elit. Voluptatibus modi vel, officia tenetur
+      nemo blanditiis dolorum totam voluptate repudiandae iste, eum doloribus
+      ullam. Repellendus, sed dolorum quia nemo dolorem at? Lorem ipsum dolor
+      sit amet consectetur adipisicing elit. Voluptas nesciunt recusandae libero
+      nostrum unde accusamus vero! Officia repellendus corrupti unde temporibus
+      eos dolores, quo debitis eveniet corporis deleniti magni delectus. Lorem
+      ipsum, dolor sit amet consectetur adipisicing elit. Doloribus at tempora
+      culpa! Molestias error culpa deserunt quod, et placeat quae eius cum. Ad
+      corrupti officia rem nam maxime sequi accusantium!
+    </p>
+    <script>
+      function goToJapan() {
+        window.location.href = "./japan.html";
+      }
+
+      function goToVietnam() {
+        window.location.href = "./vietnam.html";
+      }
+
+      function goToSpain() {
+        window.location.href = "./spain.html";
+      }
+    </script>
+
+    <!-- <footer>The Information is more a Guideline for me. I haven`t visited a lot of places, so instead of writing those down, i put in the ones i want to visit.</footer> -->
+  </body>
+</html>
